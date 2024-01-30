@@ -76,7 +76,7 @@ spec:
         - name: {{ $container.name }}
           image: "{{ $container.image.registry }}/{{ $container.image.name }}:{{ $container.image.tag }}"
           command: ["{{ $container.command }}"]
-          #args: ["-g","{{ $container.args.gNB }}"]
+          args: ["-c","{{ $container.args.mcc }}","-n","{{ $container.args.mnc }}","-b","{{ $container.args.nodebid }}" ]
           imagePullPolicy: {{ $.Values.image_pull_policy }}
   {{- if $portlist }}
           ports:
