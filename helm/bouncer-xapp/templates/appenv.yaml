@@ -23,7 +23,6 @@ data:
   {{- end }}
   RMR_RTG_SVC: "4561"
   RMR_SRC_ID: {{ include "ricxapp.servicename.rmr" . }}.{{ include "ricxapp.namespace" . }}
-  XAPP_ID: {{ .Release.Name }}
   XAPP_DESCRIPTOR_PATH: {{ .Values.appconfig.path }}
   DBAAS_SERVICE_HOST: "{{ .Values.ricplt.dbaasService }}"
   DBAAS_SERVICE_PORT: "6379"

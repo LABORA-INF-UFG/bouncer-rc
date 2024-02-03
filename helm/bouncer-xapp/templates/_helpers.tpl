@@ -27,7 +27,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 {{- define "ricxapp.fullname" -}}
-  {{- $name := .Release.Name -}}
+  {{- $name := ( include "ricxapp.name" . ) -}}
   {{- $fullname := ( printf "%s-%s" .Release.Namespace $name ) -}}
   {{- default $fullname .Values.fullname | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
