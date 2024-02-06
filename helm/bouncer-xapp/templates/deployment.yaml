@@ -64,6 +64,7 @@ spec:
         {{- end }}
         {{- end }}
       containers:
+{{- $releaseName := .Release.Name -}}
 {{- $containers := .Values.containers }}
 {{- $ports := .Values.messaging.ports }}
 {{- range $container := $containers }}
@@ -75,6 +76,9 @@ spec:
   {{- end }}
         - name: {{ $container.name }}
           image: "{{ $container.image.registry }}/{{ $container.image.name }}:{{ $container.image.tag }}"
+          env:
+          - name: XAPP_ID
+            value: {{ $releaseName }}
           {{- if $container.command }}
           command: [
           {{- range $command := $container.command -}}

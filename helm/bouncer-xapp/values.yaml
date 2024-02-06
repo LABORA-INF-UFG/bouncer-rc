@@ -40,7 +40,7 @@ storage:
 replicaCount: 1
 
 # Image pulling policy
-image_pull_policy: IfNotPresent
+image_pull_policy: Always
 
 # Environment variables that will be injected
 appenv: {}
@@ -65,7 +65,7 @@ containers:
     tag: sbrc-24
   name: bouncer-xapp
   command: ["b_xapp_main"]
-  #args: ["--mcc", "724", "--mnc", "11", "--nodebid", "5"]
+  args: ["--mcc", "724", "--mnc", "11", "--nodebid", "1"]
 http:
   protPort: tcp:8080
 messaging:
