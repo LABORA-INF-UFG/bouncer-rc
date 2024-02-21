@@ -543,7 +543,7 @@ void Xapp::fetch_connected_nodeb_list() {
 			} catch (exception& e) {
 				mdclog_write(MDCLOG_ERR, "Fetch E2 NodeB list exception: %s", e.what());
 			}
-		});
+		}).wait();
 }
 
 
